@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>计时器</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../../lib/TimeCount/main.js"></script>
+</head>
+
+<body>
+    <script>
+    var test = new TimeCount({
+        subscribe: function(obj) {
+            console.log(obj);
+
+            document.getElementById('timetext').value = obj.Day + '天' +
+                obj.Hour + '时' +
+                obj.Min + '分' +
+                obj.Sec + '秒';
+
+        }
+    });
+    </script>
+
+    <div style="text-align: center">
+        <input class="form-control" type="text" id="timetext" value="00天00时00分00秒" readonly>
+        <br>
+        <button class="btn btn-primary" type="button" onclick="test.start()">开始</button>
+        <button class="btn btn-default" type="button" onclick="test.stop()">停止</button>
+    </div>
+</body>
+
+</html>
